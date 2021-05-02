@@ -1,20 +1,17 @@
 import express, { Router } from 'express'
+import { getTest, postTest, addRoom}  from '../controllers/roomControllers.js'
+import { catchErrors } from './../helpers.js'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.send("Hello")
+    res.send('hello')
 })
 
-router.get('/test', (req, res) => {
-    res.send({
-        name: 'test'
-    })
-})
+router.get('/test', getTest)
 
-router.post('/test', (req, res) => {
-    console.log(req)
-    res.send(req.body)
-})
+router.post('/test', postTest)
+
+router.post('/room', catchErrors(addRoom))
 
 export default router
