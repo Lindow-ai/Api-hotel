@@ -30,3 +30,13 @@ export const getRoom = async (req, res) => {
     res.send(room)
 }
 
+// Update 
+
+export const updateRoom = async (req, res) => {
+    const room = await RoomModel.findByIdAndUpdate(req.params.id, req.body)
+    await room.save()
+    res.send(room)
+}
+
+
+

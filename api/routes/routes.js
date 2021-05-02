@@ -1,5 +1,5 @@
 import express, { Router } from 'express'
-import { getTest, postTest, addRoom, getRooms, getRoom }  from '../controllers/roomControllers.js'
+import { getTest, postTest, addRoom, getRooms, getRoom, updateRoom }  from '../controllers/roomControllers.js'
 import { catchErrors } from './../helpers.js'
 
 const router = express.Router()
@@ -15,6 +15,8 @@ router.post('/test', postTest)
 router.post('/room', catchErrors(addRoom))
 
 router.get('/room/:id', catchErrors(getRoom))
+
+router.patch('/room/:id', catchErrors(updateRoom))
 
 router.get('/rooms', catchErrors(getRooms))
 
