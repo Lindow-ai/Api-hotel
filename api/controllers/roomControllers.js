@@ -15,3 +15,13 @@ export const addRoom = async (req, res) => {
         await room.save()
         res.send(room)
 }
+
+// Read All
+
+export const getRooms = async (req, res) => {
+    const rooms = await RoomModel.find({})
+    res.send(rooms)
+}
+
+// Read One 
+
