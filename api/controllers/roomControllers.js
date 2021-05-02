@@ -25,3 +25,8 @@ export const getRooms = async (req, res) => {
 
 // Read One 
 
+export const getRoom = async (req, res) => {
+    const room = await RoomModel.find({_id: req.params.id })
+    res.send(room)
+}
+
